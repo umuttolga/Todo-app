@@ -1,41 +1,91 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+  font-family: "Inter";
+  background-color: #A1CDF4;
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50vh auto;
+  width: 50vh auto;
+  background-color: #A9AFD1;
+  border-radius: 5px;
+  box-shadow: 0 0 3px black;
+  padding: 10px;
+}
+
+.input-bar {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.text-input {
+  margin-top: 20px;
+  border: thin black ;
+  border-radius: 5px;
+  width: 500px;
+  height: 30px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn {
+  margin-left: 15px;
+  width: 50px;
+  height: 30px;
+  background-color: #B5B1B2;
+  border: solid #fff;
+  border-radius: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.btn:hover {
+  cursor: pointer;
+  background-color: #DBC7BE;
 }
 
-.card {
-  padding: 2em;
+.header {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #6D4A5C;
 }
 
-.read-the-docs {
-  color: #888;
+.list-items {
+  margin: 10px auto;
+} 
+
+.list-items li::marker {
+  content: "▶   ";
+  color: #1361A4;
+}
+
+.todo-list {
+  
+  margin: auto;
+  width: 90%;
+  padding: 10px;
+}
+
+.hr {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.close {
+  text-align: center;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  float: right;
+  font-size: 1.2rem;
+  border: solid black;
+  border-radius: 15px;
+}
+
+.close:hover {
+  color: red;
+  background-color: black;
+}
+
+.items {
+  height: 40px;
 }

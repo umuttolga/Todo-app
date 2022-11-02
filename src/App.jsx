@@ -1,34 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, {useState, useEffect} from 'react'
+import TodoList from './components/todo-list'
+import InputBar from './components/input-bar'
+import "./App.css"
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState('');
+  const [list, setList] = useState([]);
+  const initialList = ["Meditate", "Push-ups", "Enjoy"]
+
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setData(e.target.value)
+  }
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (data != ''){
+      setList([...list, data])
+    } 
+    setData('')
+  }
+
+
+  useEffect(() => {
+    setList(initialList)
+  }, [])
+
+  const deleteTask = ((e) => {
+    e.preventDefault();
+    let itemsCopy = [...list];
+    itemsCopy.splice(e, 1)
+    setList(itemsCopy) 
+    })
+
+    
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className='wrapper'>
+      <InputBar 
+      data={data}
+      list={list}
+      setList={setList}
+      handleClick={handleClick}
+      handleChange={handleChange}/>
+      
+      <TodoList
+      data={data}
+      setData={setData}
+      list={list}
+      setList={setList}
+      deleteTask={deleteTask} />
     </div>
   )
 }
 
 export default App
+
