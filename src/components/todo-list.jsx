@@ -1,20 +1,33 @@
-import React, {useState} from 'react'
+import React from 'react'
+import { ListItemText, ListItem, IconButton, ListItemAvatar, Avatar, Grid } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 
-function TodoList({list, deleteTask, isValid}) {
-  // add state
+
+function TodoList({list, deleteTask}) {
   const myList = list.map((e, index) => {
     return (
-      <li value={e} className='items' key={index}>{e} <span onClick={deleteTask} className='close'>x</span></li>
+      <ListItem key={index}>
+      <ListItemAvatar>
+        <Avatar>
+          <ArrowForwardIosIcon/>
+        </Avatar>
+      </ListItemAvatar>
+      <ListItemText 
+      primary={e}
+      />
+      <IconButton onClick={deleteTask}>
+        <DeleteIcon />
+      </IconButton>
+    </ListItem>
     )
   
   })
   return (
-    <div className='todo-list'>
-      <ul className='list-items'>
-        {myList}
-      </ul>
-    </div>
+    <Grid container>
+      {myList}
+    </Grid>
   )
 }
 

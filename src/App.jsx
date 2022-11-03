@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import TodoList from './components/todo-list'
 import InputBar from './components/input-bar'
-import "./App.css"
+import { Grid, Box } from '@mui/material';
+
 
 
 function App() {
@@ -9,17 +10,17 @@ function App() {
   const [list, setList] = useState([]);
   const initialList = ["Meditate", "Push-ups", "Enjoy"]
 
-
   const handleChange = (e) => {
     e.preventDefault();
     setData(e.target.value)
   }
 
+  
   const handleClick = (e) => {
     e.preventDefault();
     if (data != ''){
       setList([...list, data])
-    } 
+    }
     setData('')
   }
 
@@ -38,8 +39,10 @@ function App() {
     
 
   return (
-    <div className='wrapper'>
-      <InputBar 
+    <Box m={-1} bgcolor={'#DF57BC'} sx={{height:'100vh', width: '100%'}}>
+    <Grid m={0}  container>
+      <InputBar
+      setData={setData}
       data={data}
       list={list}
       setList={setList}
@@ -52,7 +55,8 @@ function App() {
       list={list}
       setList={setList}
       deleteTask={deleteTask} />
-    </div>
+    </Grid>
+    </Box>
   )
 }
 
