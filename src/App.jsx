@@ -6,9 +6,6 @@ import { Grid, Box } from '@mui/material';
 
 
 function App() {
-  const [lat, setLat] = useState('')
-  const [lon, setLon] = useState('')
-  const [wheather, setWheather] = useState([])
   const [data, setData] = useState('');
   const [list, setList] = useState([]);
   const initialList = ["Meditate", "Push-ups", "Enjoy"]
@@ -30,11 +27,8 @@ function App() {
   }
   
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      setLat(position.coords.latitude)
-      setLon(position.coords.longitude)
       setList(initialList)
-    })},[])
+    },[])
     
 
 
