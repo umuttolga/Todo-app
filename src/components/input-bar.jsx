@@ -11,6 +11,7 @@ function InputBar({data, handleChange, handleClick, setData, list, setList}) {
         <Grid item xs={12} >
           <Typography m={-1} mb={2} color='primary.dark' variant='h3'>To-Do List</Typography>
         </Grid>
+        
         <Grid item xs={8} >
         <TextField onKeyDown={(e) => {
           if (e.key === "Enter") {
