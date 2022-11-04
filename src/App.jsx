@@ -42,7 +42,7 @@ function App() {
     
 
   return (
-    <Box m={-1} bgcolor={'#DF57BC'} sx={{height:'100vh', width: '100%'}}>
+    <Box m={-1} bgcolor={'#DF57BC'} sx={{height:'101vh', width: '100%'}}>
     <Grid m={0}  container>
       <InputBar
       setData={setData}
